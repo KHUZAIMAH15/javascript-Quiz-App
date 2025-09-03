@@ -319,21 +319,21 @@
       let timer = questions[0].time;
       let selectedAnswer = null;
       let quizEnded = false;
-      let timerInterval;
+    
 
       let checkAnswer = (optionIndex, btn) => {
         if (quizEnded) return;
         let currentQuestion = questions[questionIndex];
         selectedAnswer = currentQuestion.options[optionIndex];
 
-        // Remove selection from all buttons
+      
         let buttons = displayoptions.getElementsByTagName("button");
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].classList.remove("bg-blue-800", "text-white");
           buttons[i].classList.add("text-gray-800");
         }
         
-        // Highlight selected button
+       
         btn.classList.add("bg-blue-800", "text-white");
         btn.classList.remove("text-gray-800");
       };
@@ -376,12 +376,12 @@
       let nextQuestion = () => {
         let currentQuestion = questions[questionIndex];
 
-        // Check if answer is correct and add marks
+      
         if (selectedAnswer && selectedAnswer === currentQuestion.correctAnswer) {
           totalMarks += currentQuestion.mark;
         }
 
-        // Check if quiz is complete
+   
         if (questionIndex + 1 === questions.length) {
           endQuiz();
         } else {
@@ -414,7 +414,7 @@
         resultMessage.innerHTML = message;
         resultModal.classList.remove("hidden");
         
-        // Disable next button
+   
         nextbtn.disabled = true;
         nextbtn.classList.add("bg-gray-400", "cursor-not-allowed");
         nextbtn.classList.remove("bg-blue-800", "hover:bg-blue-900");
@@ -426,23 +426,22 @@
         selectedAnswer = null;
         quizEnded = false;
         
-        // Hide result modal
+        
         resultModal.classList.add("hidden");
         
-        // Re-enable next button
+        
         nextbtn.disabled = false;
         nextbtn.classList.remove("bg-gray-400", "cursor-not-allowed");
         nextbtn.classList.add("bg-blue-800", "hover:bg-blue-900");
         
-        // Start new quiz
+        
         renderQuestion();
         timerInterval = setInterval(checkTimer, 1000);
       };
 
-      // Event listeners
+      
       nextbtn.onclick = nextQuestion;
       restartBtn.onclick = restartQuiz;
 
-      // Start the quiz
       renderQuestion();
-      timerInterval = setInterval(checkTimer, 1000);
+     let timerInterval = setInterval(checkTimer, 1000);
