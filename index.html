@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-screen bg-gradient-to-r from-purple-500 to-blue-500 p-2 sm:p-4 flex items-center justify-center">
+    <div class="w-full max-w-sm sm:max-w-md lg:max-w-2xl bg-white rounded-2xl shadow-lg p-3 sm:p-4 lg:p-8 h-fit max-h-[95vh] overflow-y-auto">
+      <h1 class="text-center text-blue-800 text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+        Quiz App
+      </h1>
+      
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 gap-1 sm:gap-2">
+        <h2 class="text-lg sm:text-lg font-semibold text-gray-800">
+          Question <span id="currentQuestionNo"></span> of
+          <span id="totalQuestionNo"></span>
+        </h2>
+
+        <div class="w-16 items-center gap-1 border p-1 px-2 rounded text-gray-700 text-sm">
+          🕰️ <span id="timerDisplay"></span>
+        </div>
+      </div>
+
+      <div class="w-full h-2 bg-gray-300 rounded-full mb-3 sm:mb-4">
+        <div
+          id="progressBar"
+          class="bg-blue-800 h-2 rounded-full"
+          style="width: 0%"
+        ></div>
+      </div>
+
+      <h3
+        id="displayQuestion"
+        class="text-base sm:text-lg font-medium text-gray-800 mb-3 sm:mb-4 border rounded-lg p-2 sm:p-3"
+      ></h3>
+      <div class="mb-2">
+        <span class="font-medium text-gray-800">Select an Answer:</span>
+      </div>
+
+      <div id="displayoptions" class="flex flex-col gap-2 mb-3 sm:mb-4"></div>
+
+      <div class="flex justify-center">
+        <button id="nextbtn" 
+          class="w-40 sm:w-40 p-2 sm:p-3 bg-blue-800 text-white rounded-xl font-semibold hover:bg-blue-900 transition text-sm sm:text-base">
+          Next
+        </button>
+      </div>
+
+      <!-- Quiz Results Modal -->
+      <div id="resultModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-sm mx-4 text-center">
+          <h2 class="text-xl font-bold mb-4 text-gray-800">Quiz Complete!</h2>
+          <div id="resultMessage" class="text-lg mb-4"></div>
+          <button id="restartBtn" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900">
+            Restart Quiz
+          </button>
+        </div>
+      </div>
+    </div>
+<script src="app.js"></script>
+  </body>
+</html>
