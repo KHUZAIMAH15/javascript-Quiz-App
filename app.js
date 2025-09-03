@@ -320,7 +320,6 @@
       let selectedAnswer = null;
       let quizEnded = false;
     
-
       let checkAnswer = (optionIndex, btn) => {
         if (quizEnded) return;
         let currentQuestion = questions[questionIndex];
